@@ -19,6 +19,8 @@
 
   <div class="card-footer text-muted">
     <%# add date when post created %>
+    <%= @post.created_at.strftime("%d %B %Y, %l:%M%P") %>
+    <%# add which user created the post %>
   </div>
 
 </div>
