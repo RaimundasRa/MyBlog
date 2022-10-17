@@ -1,7 +1,11 @@
-<div class="container">
-  <h1>Share your thoughts</h1>
+<br>
+<div class="jumbotron">
+  <h1 class="display-4">Share your thoughts</h1>
+  <p class="lead">A platform to share your experience with everyone</p>
+  <hr class="my-4">
   <p>everyone is welcome</p>
-
-  <%= link_to "View community posts", posts_path %>
-  <%= link_to "Create new post", new_post_path %>
+  <p class="lead">
+  <%= link_to "View community posts", posts_path, class: "btn btn-primary btn-lg"  %>
+  <%= link_to "Create new post", new_post_path, class: "btn btn-primary btn-lg" %>
+  </p>
 </div>
