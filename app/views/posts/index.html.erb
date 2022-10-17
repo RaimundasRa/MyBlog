@@ -1,0 +1,27 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Posts</h1>
+  <br>
+
+  <div id="posts">
+
+    <div class="row">
+      <% @posts.each do |post| %>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                <p class="card-text"><%= post.body %></p>
+                <%= link_to "Show this post", post, class: "btn btn-primary" %>
+              </div>
+            </div>
+            <br>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+</div>
