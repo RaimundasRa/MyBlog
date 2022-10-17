@@ -5,13 +5,13 @@ ruby "3.0.3"
 
 ### Gems imported
 # better looking error messages
-gem 'better_errors', '~> 2.9', '>= 2.9.1'
+# gem 'better_errors', '~> 2.9', '>= 2.9.1'
 
-# modern css framework
-gem 'bulma-rails', '~> 0.9.3'
+# # modern css framework
+# gem 'bulma-rails', '~> 0.9.3'
 
-# simple forms
-gem 'simple_form', '~> 5.1'
+# # simple forms
+# gem 'simple_form', '~> 5.1'
 ###
 
 
@@ -74,8 +74,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'guard', '~> 2.18'
-  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  # gem 'guard', '~> 2.18'
+  # gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
 
 group :test do
