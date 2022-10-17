@@ -1,0 +1,11 @@
+<% if current_user %>
+  <li class="nav-item">
+    <%= link_to "Posts", posts_path, class:"nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "New post", new_post_path, class:"nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "About me", about_path, class:"nav-link" %>
+  </li>
+<% end %>
