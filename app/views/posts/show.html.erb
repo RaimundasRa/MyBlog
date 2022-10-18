@@ -4,6 +4,8 @@
 
   <div class="card-header">
     <h2 class= "card-title" > <%= @post.title %> </h2>
+    <%# code for user name extraction from email is in app/helpers %>
+    <p class="card-text"> Written by: <%= user_name(@post) %></p>
     <p class="card-text"> Views: <%= @post.views %> </p>
   </div>
 
@@ -14,9 +16,9 @@
 
   <div class="btn-group">
     <%# Fix these damn buttons %>
-    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary" %>
-    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
-    <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %>
+    <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+    <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger btn-sm" %>
   </div>
 
   <div class="card-footer text-muted">
