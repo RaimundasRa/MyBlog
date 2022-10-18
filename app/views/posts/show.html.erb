@@ -4,7 +4,7 @@
 
   <div class="card-header">
     <h2 class= "card-title" > <%= @post.title %> </h2>
-    <%# code for user name extraction from email is in app/helpers %>
+    <%# code for user name extraction from email is in app/helpers/application_helper %>
     <p class="card-text"> Written by: <%= user_name(@post) %></p>
     <p class="card-text"> Views: <%= @post.views %> </p>
   </div>
