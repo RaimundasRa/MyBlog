@@ -16,9 +16,13 @@
 
   <div class="btn-group">
     <%# Fix these damn buttons %>
+    <% if @post.user == current_user && user_signed_in? %>
     <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary btn-sm" %>
     <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
     <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger btn-sm" %>
+    <% else %>
+    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+    <% end %>
   </div>
 
   <div class="card-footer text-muted">
