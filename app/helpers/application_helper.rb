@@ -4,15 +4,19 @@ module ApplicationHelper
     post.user.email.split("@").first.capitalize!
   end
 
-  def user_name_from_email(current_user)
-    current_user.email.split("@").first.capitalize!
-  end
-
   def name(current_user)
     if !current_user.name.nil?
       current_user.name
     else
-      user_name_from_email(current_user)
+      current_user.email.split("@").first.capitalize!
+    end
+  end
+
+  def name(user)
+    if user.name.nil?
+      user.email.split("@").first.capitalize!
+    else
+      user.name
     end
   end
 

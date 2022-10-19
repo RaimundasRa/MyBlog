@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :authenticate_user!
 
   def profile
     @user.update(views: @user.views + 1)
