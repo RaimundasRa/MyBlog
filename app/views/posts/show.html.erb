@@ -48,9 +48,13 @@
   </div>
 </div>
 
-<div style="margin: 150px">
+<% if user_signed_in? %>
+<div style="margin: 130px">
+  <% end %>
     <% @comments.each do |comment| %>
     <br>
     <%= render 'comments/comment', post: @post, comment: comment %>
   <% end %>
 </div>
+
+<br>
