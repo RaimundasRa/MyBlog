@@ -34,20 +34,23 @@
 
 <br>
 
-
-
-<br>
-
-<% if user_signed_in? %>
-  <div class="container">
+<div>
+  <% if user_signed_in? %>
     <%= render 'comments/form', post: @post %>
-  </div>
+</div>
 <% else %>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h2 class="display-4">You are not signed in</h2>
     <p class="lead">Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to comment</p>
+<% end %>
 
   </div>
 </div>
-<% end %>
+
+<div style="margin: 150px">
+    <% @comments.each do |comment| %>
+    <br>
+    <%= render 'comments/comment', post: @post, comment: comment %>
+  <% end %>
+</div>
