@@ -1,9 +1,10 @@
 <div class="comment-<%= comment.id%> container"
   style="border: 1px solid black; padding: 1em">
-  <%= comment.user.name %>
-  <span>Posted <%= time_ago_in_words(comment.created_at) %></span>
+  <%# find abetter way to display the name from email if name is not set %>
+  <strong style="font-size: 18px"><%= link_to comment.user.name || comment.user.email.split("@").first.capitalize!, user_path(comment.user) %></strong>
+  <span style="font-size: 13px">Posted <%= time_ago_in_words(comment.created_at) %></span>
   <% if current_user == comment.user %>
-    <div class="button-group float-end">
+    <div class="button-group float-end" style="margin: 12px 0px 12px 0px">
       <%= button_to "Delete", [post, comment], class: "btn btn-danger btn-sm", method: :delete%>
     </div>
   <% end %>
