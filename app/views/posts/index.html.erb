@@ -5,21 +5,21 @@
 
   <div id="posts">
 
-    <div class="row">
+    <%# <div class="row"> %>
       <% @posts.each do |post| %>
-          <div class="col-sm-6">
+          <%# <div class="col-sm-6"> %>
               <div class="card">
                 <div class="card-body">
                   <%# make clickable cards to direct to show page %>
                   <h5 class="card-title"><%= link_to "#{post.title}", post_path(post) %></h5>
                   <p class="card-text">Posted by: <%= link_to user_name(post), user_path(post.user) %></p>
                   <p class="card-views">Views: <%= post.views %></p>
-                  <p class="card-text"> <%= link_to "#{post.description}", post_path(post) %></p>
+                  <p class="card-text"> <%= "#{post.description}" %></p>
                 </div>
               </div>
             <br>
-          </div>
+          <%# </div> %>
       <% end %>
-    </div>
+    <%# </div> %>
 
   </div>
