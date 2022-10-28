@@ -2,9 +2,14 @@
   style="border: 1px solid black; padding: 1em">
   <%# find abetter way to display the name from email if name is not set %>
   <strong style="font-size: 18px"><%= link_to comment.user.name || comment.user.email.split("@").first.capitalize!, user_path(comment.user) %></strong>
-  <span style="font-size: 13px">Posted <%= time_ago_in_words(comment.created_at) %></span>
+  <% if (comment.updated_at - comment.created_at) > 1 %>
+    <span>Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
+  <% else %>
+    <span>Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
+  <% end %>
   <% if current_user == comment.user %>
-    <div class="button-group float-end" style="margin: 12px 0px 12px 0px">
+    <div class="btn-group float-end" >
+      <%= link_to "Edit", nil, remote: :true, class: "btn btn-warning btn-sm" %>
       <%= button_to "Delete", [post, comment], class: "btn btn-danger btn-sm", method: :delete%>
     </div>
   <% end %>
