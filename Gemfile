@@ -14,6 +14,8 @@ ruby "3.0.3"
 # gem 'simple_form', '~> 5.1'
 ###
 
+gem 'faker'
+
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.8', '>= 4.8.1'
 

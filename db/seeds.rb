@@ -8,6 +8,30 @@
 
 # User.create(email: "john@gmail.com", password: "123456", password_confirmation: "123456")
 
-10.times do |x|
-  Post.create(title: "Captivating title #{x}", description: "#{x} generic description", body: "Body #{x} something something", user_id: User.first.id)
+require 'faker'
+
+User.create(email: "tom@gmail.com", password: "123456", password_confirmation: "123456")
+User.create(email: "don@gmail.com", password: "123456", password_confirmation: "123456")
+User.create(email: "jon@gmail.com", password: "123456", password_confirmation: "123456")
+User.create(email: "gale@gmail.com", password: "123456", password_confirmation: "123456")
+User.create(email: "susana@gmail.com", password: "123456", password_confirmation: "123456")
+
+3.times do
+  Post.create(title: Faker::Movies::HitchhikersGuideToTheGalaxy.character, description: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote, user_id: 1)
+end
+
+4.times do
+  Post.create(title: Faker::Movies::HitchhikersGuideToTheGalaxy.character, description: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote, user_id: 2)
+end
+
+2.times do
+  Post.create(title: Faker::Movies::HitchhikersGuideToTheGalaxy.character, description: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote, user_id: 3)
+end
+
+6.times do
+  Post.create(title: Faker::Movies::HitchhikersGuideToTheGalaxy.character, description: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote, user_id: 4)
+end
+
+4.times do
+  Post.create(title: Faker::Movies::HitchhikersGuideToTheGalaxy.character, description: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, body: Faker::Movies::HitchhikersGuideToTheGalaxy.quote, user_id: 5)
 end
