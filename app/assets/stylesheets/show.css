@@ -1,0 +1,40 @@
+.card {
+  margin-top: 25px;
+}
+
+.author-views-text {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 390px;
+  margin-right: 390px;
+}
+
+.show-card-header {
+  padding: 70px 70px 40px 70px;
+}
+
+.show-card-body {
+  padding: 50px;
+}
+
+.show-card-body a{
+  text-decoration: none !important;
+  color: #43786b;
+}
+
+.comment-name a {
+  text-decoration: none !important;
+  color: #43786b;
+}
+
+.show-card {
+  margin-bottom: 30px;
+}
+
+.card-footer {
+  background-color: #f5f5f5;
+}
+
+.login-card {
+  padding: 20px;
+}

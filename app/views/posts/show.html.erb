@@ -4,14 +4,18 @@
 
 <div class="container">
 
-  <div class="card text-center">
+  <div class="card text-center show-card">
 
-    <div class="card-header">
+    <div class="show-card-header show-card-body">
       <h2 class= "card-title" > <%= @post.title.upcase %> </h2>
       <%# code for user name extraction from email is in app/helpers/application_helper %>
-      <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
-      <p class="card-text"> Views: <strong><%= @post.views %></strong> </p>
+      <div class="author-views-text">
+        <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
+        <p class="card-text"> Views: <strong><%= @post.views %></strong> </p>
+      </div>
     </div>
+
+    <hr>
 
     <div class="show-card-body">
 
@@ -37,21 +41,26 @@
 
   </div>
 
-  <br>
+
 
   <div>
     <% if user_signed_in? %>
       <%= render 'comments/form', post: @post, comment: @post.comments.build, submit_label: "Reply" %>
   </div>
   <% else %>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h2 class="display-4">You are not signed in</h2>
-      <p class="lead">Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to comment</p>
+
+    <div class="container card login-card">
+      <h2 class="comment-login-header">You are not signed in</h2>
+      <p class="comment-login-text">Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to comment</p>
   <% end %>
 
-    </div>
+
   </div>
+
+  <br>
+  <h4>Comments</h4>
+  <hr>
+  <br>
 
   <% if user_signed_in? %>
   <div style="margin: 130px">
