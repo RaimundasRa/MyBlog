@@ -17,7 +17,7 @@
                   <%# make clickable cards to direct to show page %>
                   <h5 class="card-title"><%= link_to "#{post.title.upcase}", post_path(post) %></h5>
                   <div class="info">
-                    <p class="card-text">Posted by: <%= link_to user_name(post), user_path(post.user) %></p>
+                    <p class="card-text">Posted by: <%= link_to user_name(post), user_path(post.user) %> <%= time_ago_in_words(post.created_at) %> ago</p>
                     <p class="card-views">Views: <strong><%= post.views %></strong></p>
                   </div>
                   <hr>
