@@ -58,9 +58,11 @@
     <% end %>
       <% @comments.each do |comment| %>
       <br>
+    <div class="comment-body">
       <%= render 'comments/comment', post: @post, comment: comment %>
+    </div>
     <% end %>
-  </div>
+    </div>
 
 </div>
 <br>

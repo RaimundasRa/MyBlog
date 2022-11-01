@@ -1,6 +1,8 @@
 <%= form_with(model: [post, comment]) do |f| %>
   <div class="form-control">
-    <%= f.rich_text_area :body %>
+    <div class="comment-body-color">
+      <%= f.rich_text_area :body %>
+    </div>
     <%= f.submit submit_label, class: "btn btn-primary mt-1 btn-sm" %>
   </div>
 <% end %>

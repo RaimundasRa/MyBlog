@@ -1,4 +1,4 @@
-<div class="comment-<%= comment.id%> container"
+<div class="comment-<%= comment.id%>"
   style="border: 1px solid black; padding: 1em">
   <%# find abetter way to display the name from email if name is not set %>
   <strong style="font-size: 18px"><%= link_to comment.user.name || comment.user.email.split("@").first.capitalize!, user_path(comment.user) %></strong>
