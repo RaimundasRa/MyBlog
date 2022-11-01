@@ -2,62 +2,65 @@
    <p style="color: green"><%= notice %></p>
 <% end %>
 
-<div class="card text-center">
+<div class="container">
 
-  <div class="card-header">
-    <h2 class= "card-title" > <%= @post.title %> </h2>
-    <%# code for user name extraction from email is in app/helpers/application_helper %>
-    <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
-    <p class="card-text"> Views: <%= @post.views %> </p>
+  <div class="card text-center">
+
+    <div class="card-header">
+      <h2 class= "card-title" > <%= @post.title.upcase %> </h2>
+      <%# code for user name extraction from email is in app/helpers/application_helper %>
+      <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
+      <p class="card-text"> Views: <%= @post.views %> </p>
+    </div>
+
+    <div class="card-body">
+
+      <p class="card-text"> <%= @post.body.capitalize %> </p>
+    </div>
+
+    <div class="btn-group">
+      <%# Fix these damn buttons %>
+      <% if @post.user == current_user && user_signed_in? %>
+      <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary btn-sm mr-2" %>
+      <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm mr-2" %>
+      <%= button_to "Delete post", @post, method: :delete, data: { turbo_confirm: "Are you sure you want to delete your post?" }, class: "btn btn-danger btn-sm" %>
+      <% else %>
+      <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+      <% end %>
+    </div>
+
+    <div class="card-footer text-muted">
+      <%# add date when post created %>
+      <%= @post.created_at.strftime("%d %B %Y, %l:%M%P") %>
+      <%# add which user created the post %>
+    </div>
+
   </div>
 
-  <div class="card-body">
+  <br>
 
-    <p class="card-text"> <%= @post.body %> </p>
+  <div>
+    <% if user_signed_in? %>
+      <%= render 'comments/form', post: @post, comment: @post.comments.build, submit_label: "Reply" %>
+  </div>
+  <% else %>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h2 class="display-4">You are not signed in</h2>
+      <p class="lead">Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to comment</p>
+  <% end %>
+
+    </div>
   </div>
 
-  <div class="btn-group">
-    <%# Fix these damn buttons %>
-    <% if @post.user == current_user && user_signed_in? %>
-    <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary btn-sm mr-2" %>
-    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm mr-2" %>
-    <%= button_to "Delete post", @post, method: :delete, data: { turbo_confirm: "Are you sure you want to delete your post?" }, class: "btn btn-danger btn-sm" %>
-    <% else %>
-    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+  <% if user_signed_in? %>
+  <div style="margin: 130px">
+    <% end %>
+      <% @comments.each do |comment| %>
+      <br>
+      <%= render 'comments/comment', post: @post, comment: comment %>
     <% end %>
   </div>
 
-  <div class="card-footer text-muted">
-    <%# add date when post created %>
-    <%= @post.created_at.strftime("%d %B %Y, %l:%M%P") %>
-    <%# add which user created the post %>
-  </div>
-
 </div>
-
-<br>
-
-<div>
-  <% if user_signed_in? %>
-    <%= render 'comments/form', post: @post, comment: @post.comments.build, submit_label: "Reply" %>
-</div>
-<% else %>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h2 class="display-4">You are not signed in</h2>
-    <p class="lead">Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to comment</p>
-<% end %>
-
-  </div>
-</div>
-
-<% if user_signed_in? %>
-<div style="margin: 130px">
-  <% end %>
-    <% @comments.each do |comment| %>
-    <br>
-    <%= render 'comments/comment', post: @post, comment: comment %>
-  <% end %>
-</div>
-
 <br>
