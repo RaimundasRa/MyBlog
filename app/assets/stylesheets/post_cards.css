@@ -9,10 +9,21 @@
   overflow: hidden;
   height: 220px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .card-title {
+  margin-bottom: 15px;
   text-decoration: none;
   color: black !important;
+}
+
+.card-body a{
+  text-decoration: none !important;
+  color: #43786b;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
 }

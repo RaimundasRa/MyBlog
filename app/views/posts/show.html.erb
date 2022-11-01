@@ -10,12 +10,12 @@
       <h2 class= "card-title" > <%= @post.title.upcase %> </h2>
       <%# code for user name extraction from email is in app/helpers/application_helper %>
       <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
-      <p class="card-text"> Views: <%= @post.views %> </p>
+      <p class="card-text"> Views: <strong><%= @post.views %></strong> </p>
     </div>
 
-    <div class="card-body">
+    <div class="show-card-body">
 
-      <p class="card-text"> <%= @post.body.capitalize %> </p>
+      <p class="show-card-text"> <%= @post.body.capitalize %> </p>
     </div>
 
     <div class="btn-group">

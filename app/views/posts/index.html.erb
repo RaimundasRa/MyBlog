@@ -16,8 +16,11 @@
                 <div class="card-body">
                   <%# make clickable cards to direct to show page %>
                   <h5 class="card-title"><%= link_to "#{post.title.upcase}", post_path(post) %></h5>
-                  <p class="card-text">Posted by: <%= link_to user_name(post), user_path(post.user) %></p>
-                  <p class="card-views">Views: <%= post.views %></p>
+                  <div class="info">
+                    <p class="card-text">Posted by: <%= link_to user_name(post), user_path(post.user) %></p>
+                    <p class="card-views">Views: <strong><%= post.views %></strong></p>
+                  </div>
+                  <hr>
                   <p class="card-text"> <%= "#{post.description.capitalize}" %></p>
                 </div>
               </div>
