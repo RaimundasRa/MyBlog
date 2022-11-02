@@ -4,9 +4,16 @@
 
 .author-views-text {
   display: flex;
-  justify-content: space-between;
-  margin-left: 390px;
-  margin-right: 390px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  /* margin-left: 390px;
+  margin-right: 390px; */
+}
+
+.card-text-element {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .show-card-header {

@@ -10,8 +10,8 @@
       <h2 class= "card-title" > <%= @post.title.upcase %> </h2>
       <%# code for user name extraction from email is in app/helpers/application_helper %>
       <div class="author-views-text">
-        <p class="card-text"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
-        <p class="card-text"> Views: <strong><%= @post.views %></strong> </p>
+        <p class="card-text-element"> Posted by: <%= link_to user_name(@post), user_path(@post.user) %></p>
+        <p class="card-text-element"> Views: <strong><%= @post.views %></strong> </p>
       </div>
     </div>
 
@@ -46,8 +46,16 @@
   <div>
     <% if user_signed_in? %>
       <%= render 'comments/form', post: @post, comment: @post.comments.build, submit_label: "Reply" %>
-      <h4 class="stubborn-comment-text">Comments</h4>
-      <hr>
+    <h4 class="stubborn-comment-text">Comments</h4>
+    <hr>
+      <% @comments.each do |comment| %>
+      <br>
+
+    <div class="comment-body">
+      <%= render 'comments/comment', post: @post, comment: comment %>
+    </div>
+    <% end %>
+
   </div>
   <% else %>
 
@@ -62,18 +70,6 @@
 
   </div>
 
-
-
-  <% if user_signed_in? %>
-  <div style="margin: 40px 190px">
-    <% end %>
-      <% @comments.each do |comment| %>
-      <br>
-    <div class="comment-body">
-      <%= render 'comments/comment', post: @post, comment: comment %>
-    </div>
-    <% end %>
-    </div>
 
 </div>
 <br>
