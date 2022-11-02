@@ -1,32 +1,35 @@
 **About**
 ---------
 
-//Rails app that works like virtual phonebook. It allows user to create a "friend"
-//add phone number, email, social. It allows user to edit the info or delete "friend"
-//enitirely. This app can be used as a back up if a person would loose his/her phone with 
-//all the contacts in it.
+Rails app that allows users to create posts, share ideas, comment the posts, check
+user profiles. The intent is to build a fully functional social platform.
 
 -------------------
 **Features so far**
 -------------------
 
-//**CRUD.** User can CREATE "friend" with info attached to it. User can READ existing "friend" info.
-//User can UPDATE existing "friend" info. User can DESTROY "friend" entirely.
+**CRUD.** User can CREATE "posts" with title, description and text. User can READ existing "posts".
+User can UPDATE existing "posts". User can Delete "posts" entirely. In addition users can comment
+posts, edit or delete them.
 
-//**Devise.** Person needs to become a user by creating an account. For this purpose Devise was
-//used. Only a registered user can create their "friends" list.
+**Devise.** Only registered users can post, view users profiles and comment. No registration required
+when browsing "posts" or reading comments.
 
-//**Associations.** User can create and edit his own "friends". User can not modify or see other users
-//"friends".
+**Associations.** Only the author of the post can edit or delete it. Same goes for the comments. Views
+counter for "posts" and profile views.
 
-//**Bootstrap.** Minimal styling and better UI. "Friend" gets highlighted when mouse cursor rolls over,
-//styling to buttons, styling for sign in page, using association hide tabs on header if user
-//is not signed in etc.
+**Bootstrap.** Some styling done using bootstrap, buttons, web responsivnes etc.
+
+**CSS.** Minimal stying for UI/UX.
 
 ----------------
 **Future plans**
 ----------------
 
-//- Definitely needs more styling. 
-//- Might need to add more data for "friend" f.e. date of birth.
-//- Search bar. It is there, but it for the looks. It would help to find a specific "friend".
+- Revork frontend, UI/UX.
+- Modal for new "posts", user registration, login.
+- Search bar to find specific posts or users.
+- Direct messaging.
+- Implement proper user profiles.
+- Notifications for comments.
+- Section for most viewed posts.
