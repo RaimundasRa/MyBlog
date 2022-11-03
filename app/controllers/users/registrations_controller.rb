@@ -28,6 +28,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def destroy
   #   super
   # end
+  def destroy
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: "Account was successfully deleted." }
+      format.json { head :no_content }
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
