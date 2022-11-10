@@ -1,10 +1,26 @@
 <% if current_user %>
   <li class="nav-item dropdown">
-    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span type="button" class="btn btn-danger btn-sm" style="padding:2px 12px">
-        <%= @unread.count >= 9 ? "9+" : @unread.count %> <i class="bi bi-suit-heart-fill" style="margin-left: 3px"></i>
-      </span>
-    </a>
+
+<%# heart color logic %>
+<% if @unread.count == 0 %>
+
+  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span type="button" class="btn btn-light btn-sm" style="padding:2px 12px">
+      <%= @unread.count %> <i class="bi bi-suit-heart-fill" style="margin-left: 3px"></i>
+    </span>
+  </a>
+
+<% elsif @unread.count >= 1 %>
+
+  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span type="button" class="btn btn-danger btn-sm" style="padding:2px 12px">
+      <%= @unread.count >= 9 ? "9+" : @unread.count %> <i class="bi bi-suit-heart-fill" style="margin-left: 3px"></i>
+    </span>
+  </a>
+
+<% end %>
+
+
 
     <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-right" aria-labelledby="navbarDropdown">
       <% @unread.each do |notification| %>
