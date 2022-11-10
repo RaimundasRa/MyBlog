@@ -2,15 +2,7 @@
   <li class="nav-item dropdown">
 
 <%# heart color logic %>
-<% if @unread.count == 0 %>
-
-  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span type="button" class="btn btn-light btn-sm" style="padding:2px 12px">
-      <%= @unread.count %> <i class="bi bi-suit-heart-fill" style="margin-left: 3px"></i>
-    </span>
-  </a>
-
-<% elsif @unread.count >= 1 %>
+<% if @unread.count > 0 %>
 
   <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span type="button" class="btn btn-danger btn-sm" style="padding:2px 12px">
@@ -18,7 +10,16 @@
     </span>
   </a>
 
-<% end %>
+
+  <% else %>
+
+    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span type="button" class="btn btn-light btn-sm" style="padding:2px 12px">
+        <%= @unread.count %> <i class="bi bi-suit-heart-fill" style="margin-left: 3px"></i>
+      </span>
+    </a>
+
+  <% end %>
 
 
 
