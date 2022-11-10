@@ -12,11 +12,14 @@ user profiles. The intent is to build a fully functional social platform.
 User can UPDATE existing "posts". User can Delete "posts" entirely. In addition users can comment
 posts, edit or delete them.
 
-**Devise.** Only registered users can post, view users profiles and comment. No registration required
+**Devise gem.** Only registered users can post, view users profiles and comment. No registration required
 when browsing "posts" or reading comments.
 
 **Associations.** Only the author of the post can edit or delete it. Same goes for the comments. Views
 counter for "posts" and profile views.
+
+**Noticed gem.** Added notifications for post comments. Users can see who and on which posts other users
+commented. 
 
 **Bootstrap.** Some styling done using bootstrap, buttons, web responsivnes etc.
 
@@ -31,5 +34,5 @@ counter for "posts" and profile views.
 - Search bar to find specific posts or users.
 - Direct messaging.
 - Implement proper user profiles.
-- Notifications for comments.
 - Section for most viewed posts.
+- <strike>Notifications for comments</strike>. <strong>Done.</strong>
